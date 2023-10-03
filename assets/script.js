@@ -3,6 +3,7 @@ const searchButton = document.getElementById("search-button");
 const cityInput = document.getElementById("city-input");
 const currentWeatherDiv = document.getElementById("current-weather");
 const forecastDiv = document.getElementById("forecast");
+const history = document.getElementById("history-list");
 
 searchButton.addEventListener("click", function () {
     const city = cityInput.value.trim();
@@ -40,12 +41,14 @@ function displayCurrentWeather(currentWeather, cityName) {
     const windSpeed = currentWeather.wind.speed;
 
     const currentWeatherHTML = `
+    <div class="current-forecast-day">
         <h2>${cityName} - Current Weather</h2>
         <p>Date: ${date}</p>
         <img src="${iconUrl}" alt="Weather Icon">
         <p>Temperature: ${temperature} °F</p>
         <p>Humidity: ${humidity} %</p>
         <p>Wind Speed: ${windSpeed} mph</p>
+    <div>
     `;
 
     currentWeatherDiv.innerHTML = currentWeatherHTML;
