@@ -16,6 +16,10 @@ function displayHistory() {
     searchHistory.forEach(city => {
         const listItem = document.createElement("li");
         listItem.textContent = city;
+        listItem.addEventListener("click", () => {
+            // When a history item is clicked, perform a new search for that city
+            getWeatherData(city);
+        });
         history.appendChild(listItem); // Append the list item to the history list
     });
 }
